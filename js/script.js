@@ -1,1 +1,3 @@
-// Javascript Code.
+$(document).ready(function() {
+	$('.dropdown-toggle').dropdown()
+});
