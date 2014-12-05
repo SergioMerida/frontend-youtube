@@ -65,12 +65,12 @@
  <div class="container">
   <div class="jumbotron top">
   <div class="row">
-   <div class="col-md-2"></div>
-   <div class="col-md-3">
-   	<img src="images/avatar_99f4458751a7_128.png" class="img-responsive img-circle" alt="Responsive image">
-   </div>	
-   <div class="col-md-7">   
-	<h1 class="vevo">Vevo</h1>
+   <div class="col-md-2">
+   	<img src="images/vevo.png" class="img-responsive" alt="Responsive image">
+   </div>
+   <div class="col-md-1"></div>
+   <div class="col-md-8">
+   <img src="images/1000px-Vevo_logo.svg.png" class="img-responsive img-rounded" alt="Responsive image">
    </div>
   </div>
  </div>
@@ -88,14 +88,51 @@
   	<div class="col-md-8">
 		<div class="panel panel-inverse">
  	 		<div class="panel-heading">Watch the video</div>
-  			<div class="panel-body">
-    			<img src="images/avatar_99f4458751a7_128.png" class="img-responsive img-circle" alt="Responsive image">
-  			</div>
+  			<div class="panel-body"><!--Start the video-->
+                <div class="container">
+                    <div class="row">
+                        <h3>Title YouTube Player</h3>
+                        <div class="col-md-8">
+                            <div id="player"></div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="col-md-1">
+                                <!-- button play/pause -->
+                                <span class="button-play glyphicon glyphicon-play"></span>
+                                <span class="button-play glyphicon glyphicon-pause" style="display:none"></span>
+
+                            </div>
+                            <div class="col-md-1">
+                                <!-- button volume -->
+                                <span class="button-volume glyphicon glyphicon-volume-up"></span>
+                                <span class="button-volume glyphicon glyphicon-volume-down" style="display:none"></span>
+                            </div>
+                            <div class="col-md-9">
+                                <!-- input range with JqueryUI -->
+                                <div id="slider"></div>
+
+                            </div>
+                            <div class="col-md-1">
+                                <!-- button fullscreen -->
+                                <span class="button-resize glyphicon glyphicon-resize-full" id="fullsize"></span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
 		</div>
 	</div>
  </div>
 </div>
 
+
+<script type="text/javascript">
+    $("#slider").slider({
+        range: "min"
+    });
+</script>
 
 <div class="navbar navbar-inverse navbar-fixed-bottom">
  <div class="container">

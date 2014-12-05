@@ -18,6 +18,23 @@ body {
 
 .list-group-item {
 	background-color: #2E2E2E;
-	border: #555555;
+	border: #222222;
 	color: white;
+}
+
+.panel {
+	background-color: #222222;
+	color: white;
+}
+
+.panel-body {
+	background-color: #2E2E2E;
+}
+
+.navbar-text {
+	color: white;
+}
+
+.dropdown-menu {
+	background-color: #555555;
 }
