@@ -38,11 +38,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">+ Views</a></li>
             <li><a href="#">+ Plays</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="#">Sorted (A-Z)</a></li>
           </ul>
         </li>
       </ul>
@@ -72,13 +68,30 @@
 
 <div class="container up">
  <div class="row">
-  <div class="col-md-4">
-	<ul data-bind="foreach: model.items">
-		<li data-bind="text: snippet.title"></li>
-		<iframe data-bind="attr: {src: 'http://www.youtube.com/embed/' + id.videoId}" width="300" height="300"></iframe>
-   </ul>
-  </div>
-  	<div class="col-md-8">
+  <div class="col-md-3">
+	<div class="panel panel-inverse">
+ 	 	<div class="panel-heading">Watch the video</div>
+  		<div class="panel-body"><!--Start the video-->
+	<table>
+			<thead>
+				<tr>
+					<th></th>
+				</tr>
+			</thead>
+            <tbody data-bind="foreach: model.items">
+					<td>
+					<br>
+					<a href="#" data-bind="text: snippet.title"></a>
+					<img data-bind="attr: {src: snippet.thumbnails.default.url}" class="img-responsive cent" alt="Responsive image">
+					<br>
+					</td>
+            </tbody>
+	</table>
+	</div>
+	</div>
+  </div><!--col-md-3-->
+	
+  	<div class="col-md-9">
 		<div class="panel panel-inverse">
  	 		<div class="panel-heading">Watch the video</div>
   			<div class="panel-body"><!--Start the video-->

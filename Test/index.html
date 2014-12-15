@@ -36,7 +36,7 @@
         <li class="pull-right dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filters <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">+ Views</a></li>
+            <li><a href="#" class="views">+ Views</a></li>
             <li><a href="#">+ Plays</a></li>
             <li><a href="#">Something else here</a></li>
             <li class="divider"></li>
@@ -72,17 +72,19 @@
 
 <div class="container up">
  <div class="row">
-  <div class="col-md-4">
-	<h4>People</h4>
-	<ul data-bind="foreach: people">
-    	<li>
-        	Name at position <span data-bind="text: $index"> </span>:
-        	<span data-bind="text: name"> </span>
-        	<a href="#" data-bind="click: $parent.removePerson">Remove</a>
-    	</li>
-	</ul>
-	<button data-bind="click: addPerson">Add</button>
+  <div class="col-md-2">
+	<div class="table-responsive">
+	<table class="table table-striped">
+            <tbody data-bind="foreach: model.items">
+					<td>
+					<a href="#" data-bind="text: snippet.title"></a>
+					<img data-bind="attr: {src: snippet.thumbnails.default.url}" class="img-responsive" alt="Responsive image" height="120" width="90">
+					</td>
+            </tbody>
+	</table>
+	</div><!--table-responsive-->
   </div>
+	<div class="col-md-1"></div>
   	<div class="col-md-8">
 		<div class="panel panel-inverse">
  	 		<div class="panel-heading">Watch the video</div>
@@ -90,7 +92,7 @@
                 <div class="embed-responsive embed-responsive-16by9">
                 <div id="player"></div>
                 </div>
-        </div>
+        	</div>
 		  </div>
 	  </div>
   </div>

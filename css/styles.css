@@ -38,3 +38,16 @@ body {
 .dropdown-menu {
 	background-color: #555555;
 }
+
+td {
+	border: 2px solid #222222;
+	text-align: center;
+}
+
+.cent {
+	margin: auto;
+}
+
+a {
+	color: white;
+}
