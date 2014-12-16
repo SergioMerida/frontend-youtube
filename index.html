@@ -55,12 +55,13 @@
  <div class="container">
   <div class="jumbotron top">
   <div class="row">
-   <div class="col-md-2">
-   	<img src="images/last.fm.png" class="img-responsive" alt="Responsive image">
+
+   <div class="col-md-4">
+   	<img src="images/1418727372_youtube.svg" class="img-responsive" alt="Responsive image">
    </div>
-   <div class="col-md-1"></div>
-   <div class="col-md-8">
-   <!--<img src="images/lastf.png" class="img-responsive img-rounded" alt="Responsive image">-->
+   
+   <div class="col-md-6">
+   <img src="images/lastfm.png" height="250" width="300"class="img-responsive img-rounded" alt="Responsive image">
    </div>
   </div>
  </div>
@@ -79,11 +80,11 @@
 				</tr>
 			</thead>
             <tbody data-bind="foreach: model.items">
-					<td>
-					<br>
+					<td data-bind="click:function() {$('.video').empty();$('.video').append('<iframe width=\'560\' height=\'315\' src=\'http://www.youtube.com/embed/'+id.videoId+'\' frameborder=\'0\' allowfullscreen></iframe>')} ">
+					
 					<a href="#" data-bind="text: snippet.title"></a>
 					<img data-bind="attr: {src: snippet.thumbnails.default.url}" class="img-responsive cent" alt="Responsive image">
-					<br>
+
 					</td>
             </tbody>
 	</table>
@@ -96,7 +97,7 @@
  	 		<div class="panel-heading">Watch the video</div>
   			<div class="panel-body"><!--Start the video-->
                 <div class="embed-responsive embed-responsive-16by9">
-                <div id="player"></div>
+                <div class="video"></div>
                 </div>
         </div>
 		  </div>
