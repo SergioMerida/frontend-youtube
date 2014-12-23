@@ -6,7 +6,7 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
  	<link rel="shortcut icon" type="image/png" href="img/photo.jpg.png"/>
 
- 	 <!-- Jquery -->
+ <!-- Jquery -->
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
  <script type='text/javascript' src='knockout/knockout-3.2.0.js'></script>
  <!-- Bootstrap core CSS -->
@@ -38,7 +38,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">+ Views</a></li>
             <li><a href="#">+ Plays</a></li>
-            <li><a href="#">Sorted (A-Z)</a></li>
+            <li><a href="#" data-bind="click:function() {$('.title').sort();}">Sorted (A-Z)</a></li>
           </ul>
         </li>
       </ul>
@@ -79,13 +79,8 @@
 					<th></th>
 				</tr>
 			</thead>
-            <tbody data-bind="foreach: model.items">
-					<td data-bind="click:function() {$('.video').empty();$('.video').append('<iframe width=\'560\' height=\'315\' src=\'http://www.youtube.com/embed/'+id.videoId+'\' frameborder=\'0\' allowfullscreen></iframe>')} ">
-					
-					<a href="#" data-bind="text: snippet.title"></a>
-					<img data-bind="attr: {src: snippet.thumbnails.default.url}" class="img-responsive cent" alt="Responsive image">
-
-					</td>
+            <tbody class ="yo">
+				
             </tbody>
 	</table>
 	</div>
