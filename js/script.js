@@ -1,3 +1,8 @@
+/**
+ * @project frontend-youtube
+ * @author Sergio Merida <tabarinisergio@gmail.com> 
+ * Bring all the Id and then we save in UrlData with the new Url
+*/
 stringUrl="";
 UrlData = [];
 viewCount = [];
