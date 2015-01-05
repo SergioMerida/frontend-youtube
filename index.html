@@ -37,8 +37,10 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Filters <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">+ Views</a></li>
-            <li><a href="#">+ Plays</a></li>
-            <li><a href="#" data-bind="click:function() {$('.title').sort();}">Sorted (A-Z)</a></li>
+            <li><a href="#">+ Likes</a></li>
+			<li><a href="#">Favorite Counts</a></li>
+			<li><a href="#">Comment Count</a></li>
+            <li><a href="#" data-bind="click: sortItems, enable: title().length > 1">Sorted (A-Z)</a></li>
           </ul>
         </li>
       </ul>
@@ -52,9 +54,6 @@
   </div><!-- /.container-fluid -->
 </nav><!--Navbar-->
 
-
-<p data-bind="text:allItems"></p>
-<button data-bind="click: sortItems, enable: allItems().length > 1">Sort</button>
 
  <div class="container">
   <div class="jumbotron top">
@@ -75,20 +74,28 @@
  <div class="row">
   <div class="col-md-3">
 	<div class="panel panel-inverse">
- 	 	<div class="panel-heading">Watch the video</div>
-  		<div class="panel-body"><!--Start the video-->
-	<table>
-			<thead>
-				<tr>
-					<th></th>
-				</tr>
-			</thead>
-            <tbody class ="yo">
-				
-            </tbody>
-	</table>
-	</div>
-	</div>
+ 	 	<div class="panel-heading">Choose one video</div>
+  			<div class="panel-body">
+			<div class="table responsive">
+			<table>
+				<tbody data-bind="foreach: title">
+					<tr><td data-bind="text: $data"></td></tr>
+					<tr><td></td></tr>
+				</tbody>
+			</table>
+			</div>
+			<!--<ul class="nav nav-list">
+				<li data-bind="foreach: allImage">
+					<a><img data-bind="attr: {src: $data}">
+					</a>
+					<li data-bind="foreach: title">
+					<p data-bind="text: $data"></p>
+					</li>
+				</li>
+			</ul>-->
+			
+			</div><!--panel body-->
+		</div><!--panel close-->
   </div><!--col-md-3-->
 	
   	<div class="col-md-9">
