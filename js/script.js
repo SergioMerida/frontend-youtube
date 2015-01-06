@@ -50,19 +50,22 @@ $(document).ready(function($) {
 					commentCount.push(parsed_jso["items"][e]["statistics"]["commentCount"])
 					image.push(parsed_jso["items"][e]["snippet"]["thumbnails"]["default"]["url"])
 				};	
-			console.log(id)
-			console.log(title)
-			console.log(description)
-			console.log(viewCount)
-			console.log(likeCount)
-			console.log(favoriteCount)
-			console.log(commentCount)
-			console.log(image)
+		
+			var prueba = []
+			for (var e = 0; e<=9; e++) {
+				prueba.push(({Data:{title:title[e], images:image[e]}}))
+			};
+			console.log(prueba);		
+
+			var hola = ([{name: [title, image]},]);
+			console.log(hola);		
 
 			var BetterListModel = function () {
 			this.allId = ko.observableArray(id); // Initial items
 			this.title = ko.observableArray(title);
-			this.allImage = ko.observableArray(image)
+			this.titleAndImage = ko.observableArray ([
+				{name: title, images:image},
+			]);
 			
 			this.lowerItems = function(){
 				this.allId.toLowerCase();

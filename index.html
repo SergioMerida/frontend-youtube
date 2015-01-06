@@ -77,21 +77,19 @@
  	 	<div class="panel-heading">Choose one video</div>
   			<div class="panel-body">
 			<div class="table responsive">
-			<table>
-				<tbody data-bind="foreach: title">
-					<tr><td data-bind="text: $data"></td></tr>
-					<tr><td></td></tr>
+			<table data-bind="foreach: titleAndImage">
+				<tbody>
+					<tr>
+						<td data-bind="foreach: name"><p data-bind="text: $data"></p></td>
+						<td data-bind="foreach: images"><img data-bind="attr: {src: $data}"></td>
+					</tr>
 				</tbody>
 			</table>
 			</div>
-			<!--<ul class="nav nav-list">
-				<li data-bind="foreach: allImage">
-					<a><img data-bind="attr: {src: $data}">
-					</a>
-					<li data-bind="foreach: title">
-					<p data-bind="text: $data"></p>
-					</li>
-				</li>
+
+			<!--<ul class="nav nav-list" data-bind="foreach: titleAndImage">
+				<li data-bind="foreach: Data"><a data-bind="text: $data"></a></li>
+				<li data-bind="text: images"></li>
 			</ul>-->
 			
 			</div><!--panel body-->
