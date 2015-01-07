@@ -9,11 +9,11 @@
  <!-- Jquery -->
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
  <script type='text/javascript' src='knockout/knockout-3.2.0.js'></script>
+ <script type='text/javascript' src='knockout/knockout.simpleGrid.3.0.js'></script>
  <!-- Bootstrap core CSS -->
  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
  <link href="css/styles.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -40,7 +40,7 @@
             <li><a href="#">+ Likes</a></li>
 			<li><a href="#">Favorite Counts</a></li>
 			<li><a href="#">Comment Count</a></li>
-            <li><a href="#" data-bind="click: sortItems, enable: title().length > 1">Sorted (A-Z)</a></li>
+            <!--<li><a href="#" data-bind="click: sortItems, enable: title().length > 1">Sorted (A-Z)</a></li>-->
           </ul>
         </li>
       </ul>
@@ -54,6 +54,19 @@
   </div><!-- /.container-fluid -->
 </nav><!--Navbar-->
 
+	<div data-bind='simpleGrid: gridViewModel'> </div>
+ 
+	<button data-bind='click: addItem'>
+		Add item
+	</button>
+	 
+	<button data-bind='click: sortByName'>
+		Sort by name
+	</button>
+	 
+	<button data-bind='click: jumpToFirstPage, enable: gridViewModel.currentPageIndex'>
+		Jump to first page
+	</button> 
 
  <div class="container">
   <div class="jumbotron top">
@@ -72,31 +85,31 @@
 
 <div class="container up">
  <div class="row">
-  <div class="col-md-3">
+  <div class="col-md-4">
 	<div class="panel panel-inverse">
  	 	<div class="panel-heading">Choose one video</div>
   			<div class="panel-body">
-			<div class="table responsive">
-			<table data-bind="foreach: titleAndImage">
-				<tbody>
-					<tr>
-						<td data-bind="foreach: name"><p data-bind="text: $data"></p></td>
-						<td data-bind="foreach: images"><img data-bind="attr: {src: $data}"></td>
-					</tr>
-				</tbody>
-			</table>
-			</div>
-
-			<!--<ul class="nav nav-list" data-bind="foreach: titleAndImage">
-				<li data-bind="foreach: Data"><a data-bind="text: $data"></a></li>
-				<li data-bind="text: images"></li>
-			</ul>-->
-			
+			<!--<table width="300" align="center" data-bind="foreach: titleAndImage">
+			  <tr>
+				<td>
+				  <table width="50%" align="left" data-bind="foreach: name">
+				    <tr>
+				      <td bgcolor="#555555" id="firstTd" valign="center" class="container tds" height="81.5px" width="80px;"><div class="videoName" data-bind="text: $data"></div></td>
+				    </tr>
+				  </table>
+				  <table width="50%" align="left" data-bind="foreach: images" >
+				    <tr>
+				      <td bgcolor="#555555" id="secondTd" ><img data-bind="attr: {src: $data}" height="80px" width="80px;"></td>
+				    </tr>
+				  </table>
+				</td>
+			  </tr>
+			</table>-->
 			</div><!--panel body-->
 		</div><!--panel close-->
   </div><!--col-md-3-->
 	
-  	<div class="col-md-9">
+  	<div class="col-md-7">
 		<div class="panel panel-inverse">
  	 		<div class="panel-heading">Watch the video</div>
   			<div class="panel-body"><!--Start the video-->
@@ -123,6 +136,7 @@
 	<!-- Bootstrap -->
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="http://cdn.kendostatic.com/2014.3.1119/js/kendo.all.min.js"></script>
 </body>
 
 </html>

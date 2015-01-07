@@ -49,18 +49,46 @@ $(document).ready(function($) {
 					favoriteCount.push(parsed_jso["items"][e]["statistics"]["favoriteCount"])
 					commentCount.push(parsed_jso["items"][e]["statistics"]["commentCount"])
 					image.push(parsed_jso["items"][e]["snippet"]["thumbnails"]["default"]["url"])
-				};	
-		
-			var prueba = []
+					/*image.push("<img src=\""+imag+"\">");*/
+				};			
+
+			var initialData = []
 			for (var e = 0; e<=9; e++) {
-				prueba.push(({Data:{title:title[e], images:image[e]}}))
+				initialData.push(({name:title[e], images:image[e]}))
 			};
-			console.log(prueba);		
+			
 
-			var hola = ([{name: [title, image]},]);
-			console.log(hola);		
-
-			var BetterListModel = function () {
+	console.log(initialData);
+ 
+var PagedGridModel = function(items) {
+    this.items = ko.observableArray(items);
+ 
+    this.addItem = function() {
+        this.items.push({ name: "New item", images: "New image" });
+    };
+ 
+    this.sortByName = function() {
+        this.items.sort(function(a, b) {
+            return a.name < b.name ? -1 : 1;
+        });
+    };
+ 
+    this.jumpToFirstPage = function() {
+        this.gridViewModel.currentPageIndex(0);
+    };
+ 
+    this.gridViewModel = new ko.simpleGrid.viewModel({
+        data: this.items,
+        columns: [
+            { headerText: "Item Name", rowText: "name" },
+            { headerText: "Sales Count", rowText: "images"},
+        ],
+        pageSize: 10
+    });
+};
+ 
+ko.applyBindings(new PagedGridModel(initialData));
+			/*var BetterListModel = function () {
 			this.allId = ko.observableArray(id); // Initial items
 			this.title = ko.observableArray(title);
 			this.titleAndImage = ko.observableArray ([
@@ -68,17 +96,16 @@ $(document).ready(function($) {
 			]);
 			
 			this.lowerItems = function(){
-				this.allId.toLowerCase();
 				this.title.toLowerCase();
-				this.allImage.toLowerCase();
 			};
+
 			this.sortItems = function() {
 				this.title.sort(function (a, b) {
 				return a.toLowerCase().localeCompare(b.toLowerCase());
 				});
 			};
 			};
-		ko.applyBindings(new BetterListModel());
+		ko.applyBindings(new BetterListModel());*/
 			}
 		}); /*End of second ajax call*/
 		} /*end of variable with if and else*/
