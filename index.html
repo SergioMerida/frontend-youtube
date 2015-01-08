@@ -7,9 +7,9 @@
  	<link rel="shortcut icon" type="image/png" href="img/photo.jpg.png"/>
 
  <!-- Kendo -->
-<link href="Kendo/kendo.common.min.css" rel="stylesheet">
-<link href="Kendo/kendo.silver.min.css" rel="stylesheet">
-<link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1119/styles/kendo.default.min.css">
+ <link href="Kendo/kendo.common.min.css" rel="stylesheet">
+ <link href="Kendo/kendo.silver.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1119/styles/kendo.default.min.css">
  <!-- Jquery -->
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
  <script type='text/javascript' src='knockout/knockout-3.2.0.js'></script>
@@ -18,23 +18,25 @@
  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
  <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
  <link href="css/styles.css" rel="stylesheet">
+ <!--Close of all the scripts in head-->
+
 </head>
 <body>
-
+<!--Navbar Top-->
 	<nav class="navbar navbar-inverse" role="navigation">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+  	 <div class="container-fluid">
+     <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Frontend-youtube</a>
-    </div>
+       </button>
+       <a class="navbar-brand" href="#">Frontend-youtube</a>
+     </div><!--Close of Navbar Header-->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!--Start the toggle-->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li class="pull-right dropdown">
@@ -44,9 +46,9 @@
             <li><a href="#" data-bind='click: sortByLikes'>+ Likes</a></li>
 			<li><a href="#" data-bind='click: sortByComments'>Number of Comments</a></li>
             <li><a href="#" data-bind= 'click: sortByName'>Sorted (A-Z)</a></li>
-          </ul>
-        </li>
-      </ul>
+          </ul><!--Close of ul dropdown-->
+        </li><!--Close of pull-right-->
+      </ul><!--Close of navbar with toogle inside-->
       <form class="pull-right navbar-form navbar-left" role="search">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search">
@@ -55,22 +57,25 @@
       </form>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
-</nav><!--Navbar-->
+</nav><!--Close of Navbar-->
+<!--Close of Navbar Top-->
 
+<!--Container with the last fm icon inside-->
  <div class="container">
   <div class="jumbotron top">
   <div class="row">
 
    <div class="col-md-4">
    	<img src="images/1418727372_youtube.svg" class="img-responsive" alt="Responsive image">
-   </div>
+   </div><!--Close of col-md-4-->
    
    <div class="col-md-6">
    <img src="images/lastfm.png" height="250" width="300"class="img-responsive img-rounded" alt="Responsive image">
-   </div>
-  </div>
- </div>
- </div>
+   </div><!--Close of col-md-6-->
+  </div><!--Close of row-->
+ </div><!--Close of jumbotron-->
+ </div><!--Close of container-->
+
 
 <div class="container up">
  <div class="row">
@@ -93,7 +98,7 @@
   </div><!--col-md-3-->
 	
   	<div class="col-md-6">
-		<div class="panel panel-inverse">
+		<div class="panel panel-inverse videos">
  	 		<div class="panel-heading">Watch the video</div>
   			<div class="panel-body"><!--Start the video-->
                 <div class="embed-responsive embed-responsive-16by9">
@@ -105,23 +110,19 @@
   </div>
 </div>
 
-
-
 <div class="navbar navbar-inverse navbar-fixed-bottom">
  <div class="container">
   <p class="navbar-text pull-left">Site Built By: Sergio Merida</p>
   <a href="https://github.com/SergioMerida" target="blank" class="navbar-btn btn-danger btn pull-right">Look my Github</a>
- </div>
-</div>
+ </div><!--container-->
+</div><!--navbar fixed bottom-->
 	
 	<!--Javascript-->
 	<script src="js/script.js"></script>
-	<!-- Bootstrap -->
+	<!--JS Bootstrap -->
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<link href="script.css" rel="stylesheet">
-
-	 <!-- Kendo -->
+	<!--JS Kendo -->
 	<script src="Kendo/kendo.all.min.js"></script>
 	<script src="Kendo/knockout-kendo.min.js"></script>
 

@@ -114,60 +114,9 @@ var ViewModel = function(items) {
     };
 };
 
+
 ko.applyBindings(new ViewModel(initialData));
-		
- 
-/*
-var PagedGridModel = function(items) {
-    this.items = ko.observableArray(items);
- 
-    this.addItem = function() {
-        this.items.push({ name: "New item", images: "New image" });
-    };
- 
-    this.sortByName = function() {
-        this.items.sort(function(a, b) {
-            return a.name < b.name ? -1 : 1;
-        });
-    };
- 
-    this.jumpToFirstPage = function() {
-        this.gridViewModel.currentPageIndex(0);
-    };
- 
-    this.gridViewModel = new ko.simpleGrid.viewModel({
-        data: this.items,
-        columns: [
-            { headerText: "Item Name", rowText: "name" },
-            { headerText: "Sales Count", rowText: "images"},
-        ],
-        pageSize: 10
-    });
-};
 
-ko.applyBindings(new PagedGridModel(initialData));
-*/
-/*
-			var BetterListModel = function () {
-			this.allId = ko.observableArray(id); // Initial items
-			this.title = ko.observableArray(title);
-			this.titleAndImage = ko.observableArray ([
-				{name: title, images:image},
-			]);
-			
-			this.lowerItems = function(){
-				this.title.toLowerCase();
-			};
-
-			this.sortItems = function() {
-				this.title.sort(function (a, b) {
-				return a.toLowerCase().localeCompare(b.toLowerCase());
-				});
-			};
-			};<link href="Kendo/kendo.common.min.css" rel="stylesheet">
-<link href="Kendo/kendo.silver.min.css" rel="stylesheet">
-<link href="script.css" rel="stylesheet">
-		ko.applyBindings(new BetterListModel());*/
 			}
 		}); /*End of second ajax call*/
 		} /*end of variable with if and else*/
