@@ -9,7 +9,7 @@
  <!-- Kendo -->
 <link href="Kendo/kendo.common.min.css" rel="stylesheet">
 <link href="Kendo/kendo.silver.min.css" rel="stylesheet">
-
+<link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1119/styles/kendo.default.min.css">
  <!-- Jquery -->
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
  <script type='text/javascript' src='knockout/knockout-3.2.0.js'></script>
@@ -79,7 +79,7 @@
  	 	<div class="panel-heading">Choose one video</div>
       <div data-bind="kendoGrid: gridOptions"></div>
         <script id="rowTmpl" type="text/html">
-            <tr>
+            <tr data-bind="click:function() {$('.video').empty();$('.video').append('<iframe width=\'560\' height=\'315\' src=\'http://www.youtube.com/embed/'+ids+'\' frameborder=\'0\' allowfullscreen></iframe>')}">
                 <td data-bind="text: name"></td>
                 <td> <img width="100px" height="100px" data-bind="attr:{src: images}" /></td>
 				<td data-bind="text: view"></td>
