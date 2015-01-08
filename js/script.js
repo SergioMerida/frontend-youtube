@@ -7,7 +7,6 @@ stringUrl="";
 UrlData = "";
 viewCount = [];
 likeCount = [];
-favoriteCount = [];
 commentCount = [];
 id = [];
 title = [];
@@ -46,20 +45,72 @@ $(document).ready(function($) {
 					description.push(parsed_jso["items"][e]["snippet"]["description"])		
 					viewCount.push(parsed_jso["items"][e]["statistics"]["viewCount"])
 					likeCount.push(parsed_jso["items"][e]["statistics"]["likeCount"])
-					favoriteCount.push(parsed_jso["items"][e]["statistics"]["favoriteCount"])
 					commentCount.push(parsed_jso["items"][e]["statistics"]["commentCount"])
 					image.push(parsed_jso["items"][e]["snippet"]["thumbnails"]["default"]["url"])
-					/*image.push("<img src=\""+imag+"\">");*/
 				};			
-
+			console.log(commentCount)
 			var initialData = []
 			for (var e = 0; e<=9; e++) {
-				initialData.push(({name:title[e], images:image[e]}))
+				initialData.push(({name:title[e], images:image[e], view:viewCount[e], like:likeCount[e], comment:commentCount[e]}))
 			};
-			
 
-	console.log(initialData);
+var ViewModel = function(items) {
+    this.items = ko.observableArray(items);
+
+	this.sortByName = function() {
+        this.items.sort(function(a, b) {
+            return a.name < b.name ? -1 : 1;
+        });
+    };
+
+	this.sortByLikes = function() {
+        this.items.sort(function(c, d) {
+            return c.like > d.like ? -1 : 1;
+        });
+    };
+	
+	this.sortByViews = function() {
+        this.items.sort(function(c, d) {
+            return c.view > d.view ? -1 : 1;
+        });
+    };
+	
+	this.sortByComments = function() {
+        this.items.sort(function(c, d) {
+            return c.comment < d.comment ? -1 : 1;
+        });
+    };     
+
+    this.gridOptions = {
+        data: this.items,
+        rowTemplate: "rowTmpl",
+        useKOTemplates: true,
+
+        columns: [ 
+            {
+                title: "Name"
+            },
+            {
+                title: "Image"   
+            },
+			{
+				title: "View Count"
+			},
+			{
+				title: "Like Count"
+			},
+			{
+				title: "Comment Count"
+			},
+        ],
+        height: 347
+    };
+};
+
+ko.applyBindings(new ViewModel(initialData));
+		
  
+/*
 var PagedGridModel = function(items) {
     this.items = ko.observableArray(items);
  
@@ -88,7 +139,9 @@ var PagedGridModel = function(items) {
 };
  
 ko.applyBindings(new PagedGridModel(initialData));
-			/*var BetterListModel = function () {
+*/
+/*
+			var BetterListModel = function () {
 			this.allId = ko.observableArray(id); // Initial items
 			this.title = ko.observableArray(title);
 			this.titleAndImage = ko.observableArray ([
@@ -104,7 +157,9 @@ ko.applyBindings(new PagedGridModel(initialData));
 				return a.toLowerCase().localeCompare(b.toLowerCase());
 				});
 			};
-			};
+			};<link href="Kendo/kendo.common.min.css" rel="stylesheet">
+<link href="Kendo/kendo.silver.min.css" rel="stylesheet">
+<link href="script.css" rel="stylesheet">
 		ko.applyBindings(new BetterListModel());*/
 			}
 		}); /*End of second ajax call*/
