@@ -1,5 +1,7 @@
 body {
     background-color: #555555;
+	background: url('http://desktop-world.info/wp-content/uploads/2008/11/requalized_by_f_law.jpg') no-repeat;
+	background-size: 100% 100%
 }
 
 .vevo {
@@ -28,7 +30,7 @@ body {
 }
 
 .panel-body {
-	background-color: #2E2E2E;
+	background-color: #222222;
 }
 
 .navbar-text {
@@ -59,4 +61,20 @@ a {
 .videos {
 	height: 508px;
 }
+
+.k-pager-wrap {
+	background-color: #2E2E2E;
+	color: white;
+}
+
+.k-grid th.k-header {
+	background-color: #2E2E2E;
+	color: white;
+}
+
+.k-grid-content {
+	background-color: #2E2E2E;
+	color: white;
+}
+
 

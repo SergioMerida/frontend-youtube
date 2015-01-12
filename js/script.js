@@ -55,6 +55,7 @@ $(document).ready(function($) {
 				initialData.push(({name:title[e], images:image[e], view:viewCount[e], like:likeCount[e], comment:commentCount[e]
 , ids:id[e]}))
 			};
+			console.log(initialData)
 
 var ViewModel = function(items) {
     this.items = ko.observableArray(items);
@@ -87,6 +88,8 @@ var ViewModel = function(items) {
         data: this.items,
         rowTemplate: "rowTmpl",
         useKOTemplates: true,
+		sortable: true,
+    	filterable: true,
         height: 430,
 
         columns: [ 
@@ -111,9 +114,9 @@ var ViewModel = function(items) {
         pageSize: 3,
         buttonCount: 1
       },
+
     };
 };
-
 
 ko.applyBindings(new ViewModel(initialData));
 
