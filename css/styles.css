@@ -18,12 +18,30 @@ body {
 	background: #6E6E6E url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;
 }
 
+.close {
+	color: white;
+}
+
 .list-group-item {
 	background-color: #2E2E2E;
 	border: #222222;
 	color: white;
 }
 
+.modal-header {
+	background-color: #222222;
+	color: white;
+}
+
+.modal-body {
+	background-color: #222222;
+	color: white;
+}
+
+.modal-footer {
+	background-color: #222222;
+	color: white;
+}
 .panel {
 	background-color: #222222;
 	color: white;

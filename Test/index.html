@@ -7,24 +7,59 @@
  	<link rel="shortcut icon" type="image/png" href="img/photo.jpg.png"/>
 
  	 <!-- Jquery -->
- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"> </script>
+ <script src="js/jquery-v1-11.js"> </script>
  <script type='text/javascript' src='knockout/knockout-3.2.0.js'></script>
+ <!-- Kendo -->
+ <link href="Kendo/kendo.common.min.css" rel="stylesheet">
+ <link href="Kendo/kendo.silver.min.css" rel="stylesheet">
+ <link rel="stylesheet" href="http://cdn.kendostatic.com/2014.3.1119/styles/kendo.default.min.css">
  <!-- Bootstrap core CSS -->
  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
- <link href="bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
  <link href="css/styles.css" rel="stylesheet">
 
 </head>
 <body>
+	<!--Navbar Top-->
+	<nav class="navbar navbar-inverse" role="navigation">
+  	 <div class="container-fluid">
+	     <!-- Brand and toggle get grouped for better mobile display -->
+	      <div class="navbar-header">
+	       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		<span class="sr-only">Toggle navigation</span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+		<span class="icon-bar"></span>
+	       </button>
+	       <a class="navbar-brand" href="#">Frontend-youtube</a>
+	     </div><!--Close of Navbar Header-->
 
-	<div id="one">
+	    <!--Start the toggle-->
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+	      <div class="pull-right navbar-left">
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">Search</button>
+	      </div>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	</nav><!--Close of Navbar-->
+	<!--Close of Navbar Top-->
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Search for specific name</h4>
+      </div>
+      <div class="modal-body">
+        <div id="one">
 	  <header> 
 	    <form action="#"> 
-		<input placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off"> 
+		<input class="form-control" placeholder="Search…" type="search" name="q" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off"> 
 	    </form> 
 	</header> 
 	<div class="content"> 
-	    <ul data-bind="template: {name:'beer', foreach:initialData}"> 
+	    <ul data-bind="template: {name:'beer', foreach:initialData}">
 	    </ul> 
 	</div> 
 
@@ -34,25 +69,86 @@
 	    </li>
 	</script> 
 	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<!--Container with the last fm icon inside-->
+	 <div class="container">
+	  <div class="jumbotron top">
+	  <div class="row">
+	   <div class="col-md-4">
+	   	
+	   </div><!--Close of col-md-4-->
+	   
+	   <div class="col-md-6">
+	   <img src="images/lastfm.png" height="250" width="300"class="img-responsive img-rounded" alt="Responsive image">
+	   </div><!--Close of col-md-6-->
+	  </div><!--Close of row-->
+	 </div><!--Close of jumbotron-->
+	 </div><!--Close of container-->
 
 	<div id="two">
-	  <div data-bind="kendoGrid: gridOptions"></div>
-        <script id="rowTmpl" type="text/html">
-            <tr>
-                <td data-bind="text: name"></td>
-                <td> <img width="100px" height="100px" data-bind="attr:{src: images}" /></td>
-				<td data-bind="text: view"></td>
-				<td data-bind="text: like"></td>
-				<td data-bind="text: comment"></td>
-            </tr>
-        </script>
-	</div>
-
+	 <div class="container up">
+	  <div class="row">
+	   <div class="col-md-6">
+	    <div class="panel">
+	     <div class="panel-heading">
+	      <div class="btn-group">
+	      <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+    			Filters<span class="caret"></span>
+  	      </button>
+		 <ul class="dropdown-menu" role="menu">
+		  <li><a href="#" data-bind='click: sortByViews'>+ Views</a></li>
+		  <li><a href="#" data-bind='click: sortByLikes'>+ Likes</a></li>
+	    	  <li><a href="#" data-bind='click: sortByComments'>Number of Comments</a></li>
+		  <li><a href="#" data-bind= 'click: sortByName'>Sorted (A-Z)</a></li>
+	         </ul><!--Close of navbar with toogle inside-->
+	      </div><!--Btn Group-->
+	     </div><!--panel heading-->
+	     <div class="panel-body">
+	      <div data-bind="kendoGrid: gridOptions"></div>
+               <script id="rowTmpl" type="text/html">
+		<tr data-bind="click:function() {$('.video').empty();$('.video').append('<iframe width=\'560\' height=\'315\' src=\'http://www.youtube.com/embed/'+ids+'\' frameborder=\'0\' allowfullscreen></iframe>')}">
+		 <td data-bind="text: name"></td>
+		 <td> <img width="100px" height="100px" data-bind="attr:{src: images}" /></td>
+	         <td data-bind="text: view"></td>
+	         <td data-bind="text: like"></td>
+		 <td data-bind="text: comment"></td>
+		</tr>
+	       </script>
+	     </div><!--panel-body-->
+	    </div><!--panel-->
+	   </div><!--col-md-6-->
+	   <div class="col-md-6">
+		<div class="panel panel-inverse videos">
+ 	 		<div class="panel-heading">Watch the video</div>
+  			<div class="panel-body"><!--Start the video-->
+                <div class="embed-responsive embed-responsive-16by9">
+                <div class="video"></div>
+                </div>
+           </div>
+	  </div><!--Row-->
+	 </div><!--container--> 
+   	</div><!--ID-->
+	
+	<div class="navbar navbar-inverse navbar-fixed-bottom">
+	 <div class="container">
+	  <p class="navbar-text pull-left">Site Built By: Sergio Merida</p>
+	  <a href="https://github.com/SergioMerida" target="blank" class="navbar-btn btn-danger btn pull-right">Look my Github</a>
+	 </div><!--container-->
+	</div><!--navbar fixed bottom-->
 	
 	<!--Javascript-->
 	<script src="js/script.js"></script>
+	<!--JS Kendo -->
+	<script src="Kendo/kendo.all.min.js"></script>
+	<script src="Kendo/knockout-kendo.min.js"></script>
 	<!-- Bootstrap -->
-	<script src="bootstrap/js/bootstrap.js"></script>
 	<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
 

@@ -17,7 +17,8 @@ image = [];
  * Dropdown of filters 
 */
 $(document).ready(function() {
-	$('.dropdown-toggle').dropdown()
+	$('.dropdown-toggle').dropdown();
+	$("#input-choice").popover({content: "Search by the name of the song, click if you want to watch and close this window to watch the video"});
 });
 
 $(document).ready(function($) {
@@ -55,9 +56,20 @@ $(document).ready(function($) {
 				initialData.push(({name:title[e], images:image[e], view:viewCount[e], like:likeCount[e], comment:commentCount[e]
 , ids:id[e]}))
 			};
-			console.log(initialData)
 
-var ViewModel = function(items) {
+    var viewModelA = {
+        query: ko.observable('')
+    };
+
+    viewModelA.initialData = ko.dependentObservable(function() {
+        var search = this.query().toLowerCase();
+        return ko.utils.arrayFilter(initialData, function(beer) {
+            return beer.name.toLowerCase().indexOf(search) >= 0;
+        });
+    }, viewModelA);
+  
+
+  var ViewModelB = function(items) {
     this.items = ko.observableArray(items);
 
 	this.sortByName = function() {
@@ -118,9 +130,10 @@ var ViewModel = function(items) {
     };
 };
 
-ko.applyBindings(new ViewModel(initialData));
+  ko.applyBindings(viewModelA, document.getElementById("one"));
+  ko.applyBindings(new ViewModelB(initialData), document.getElementById("two"));
 
-			}
+}
 		}); /*End of second ajax call*/
 		} /*end of variable with if and else*/
 

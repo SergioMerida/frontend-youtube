@@ -8,6 +8,13 @@ title = [];
 description = [];
 image = [];
 
+/**
+ * Dropdown of filters 
+*/
+$(document).ready(function() {
+	$('.dropdown-toggle').dropdown();
+});
+
 $(document).ready(function($) {
 	$.ajax({
 		url : "https://www.googleapis.com/youtube/v3/search?key=AIzaSyCZIdvJkrCNDjswEeRtMTbN6B9yEiz2pEo&channelId=UCutAQ7OXuxEZ1Cw3ZPmPOZA&part=snippet&maxResults=50&format=json",
